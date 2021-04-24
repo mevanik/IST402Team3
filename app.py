@@ -7,6 +7,13 @@ app = Flask(__name__)
 def home():
     return render_template("reminder.html")
 
+@app.route('/postmethod', methods = ['POST'])
+def post_javascript_data():
+    jsdata = request.form['canvas_data']
+    unique_id = create_csv(jsdata)
+    params = { 'uuid' : unique_id }
+    return jsonify(params)
+
 @app.route("/api/data")
 def get_data():
     return app.send_static_file("data.json")
