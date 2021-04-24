@@ -1,4 +1,45 @@
-var input = document.querySelectorAll('#enter input[type=text]')[0],
+$(document).ready(() => {
+
+  var tasks = 0
+  $("#removeAll").hide();
+  
+  /* add new task handler */
+  $("#add").on("click", (event) => {
+   event.preventDefault();
+   event.stopPropagation();
+   var val = $("input").val();
+   if(val !=="") {
+    tasks +=1;
+    var elm =$("<li class='list-group-item'").text(val);
+    $(elem).append("<div class='text-right'><button class='btn btn-danger'> X </button></div></li>");
+    $("#mylist").append(elem);
+    $("input").val("");
+  
+  /* remove unique task handler */
+  $(".text-right").on("clikc", function(event) {
+   event.preventDefault();
+   event.stopPropagation();
+   tasks -=1;
+   $(this).parent.remove();
+  });
+  
+  /* show removeAll button when we have more than 3 tasks */
+  if(tasks > 2 ) {
+   $("#removeAll").show();
+  }
+  
+  /* removeAll handler */
+  $("#removeAll").on("click", event => {
+   event.preventDefault();
+   event.stopPropagation();
+   $(".disabled").siblings().remove();
+   tasks = 0;
+   $("#removeAll").hide();
+  });
+  }
+  });
+  }); 
+/* var input = document.querySelectorAll('#enter input[type=text]')[0],
     entries = {},
     completed = {},
     reminders = {
@@ -56,6 +97,6 @@ var input = document.querySelectorAll('#enter input[type=text]')[0],
 document.onkeydown = function(e) {
   e = e || window.event;
   var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-  if (charCode == 13) { reminders.create(input.value); } /* enter key creates new reminder */
+  if (charCode == 13) { reminders.create(input.value); } /* enter key creates new reminder 
 }
-reminders.display('entries');
+reminders.display('entries'); */
