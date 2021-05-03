@@ -1,4 +1,4 @@
-# IST402Team3 This is our team 3 reminder app!
+# IST402Team3 This is our team 3 reminder app! Final Draft.
 # We would like to introduce the reminder web application 
 # Our goal is accurately locate market demand and find specific target customers(s), describe products, technologies, conceptual products and services. Explain how to meet customer needs To solve various social, economic and technological complex problems. 
 # We are create a reminder web application so people can add, delete and set reminders for their everyday needs. 
